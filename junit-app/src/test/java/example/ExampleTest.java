@@ -84,4 +84,26 @@ public class ExampleTest {
         assertEquals("Hello!", example.greet(""));
     }
 
+    @Test(expected=ExampleException.class)
+    public void testExceptionWithAnnotation() throws Exception {
+
+        // ... code that must throw an exception
+
+        // JUnit expects the exception declared in the annotation
+        // if it is not thrown, the test fails
+    }
+
+    @Test
+    public void testExceptionWithoutAnnotation() throws Exception {
+        try {
+
+            // ... code that must throw an exception
+
+            fail();
+        } catch (Exception e) {
+            // expected
+            // check message of exception etc
+        }
+    }
+
 }
